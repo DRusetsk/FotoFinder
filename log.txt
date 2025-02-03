@@ -1,0 +1,13 @@
+Meeting 1 - 10:01 AM 2025-02-03
+The TA suggested to incorporate features that will make our app unique compared to other social media-adjacent apps, so we should incorporate things that are unique to photographers (e.g. camera settings).
+
+Potential unique features:
+- Posts including the camera settings/specs that were used to take the picture
+- Review system so people can rate recommended locations and users (kind of like Google Maps or Uber)
+- User profile can include current camera and maybe a camera history (history of cameras the user has had)
+- General recommendations/tips for camera settings
+- Posts can include the raw file and the edited picture
+
+General features:
+- Dark mode
+- Follower/following system
