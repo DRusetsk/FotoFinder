@@ -11,3 +11,7 @@ Potential unique features:
 General features:
 - Dark mode
 - Follower/following system
+
+
+Meeting 2 - 9:49 AM 2025-02-24
+ITR0 and ITR1 are done, just need to continue coding, especially our code foundation. All our planning documents are done and uploaded to the GitHub. Currently making plans to meet and catch up on any shortcomings in terms of the project's code.
