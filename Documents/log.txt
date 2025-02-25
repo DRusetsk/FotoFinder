@@ -15,3 +15,18 @@ General features:
 
 Meeting 2 - 9:49 AM 2025-02-24
 ITR0 and ITR1 are done, just need to continue coding, especially our code foundation. All our planning documents are done and uploaded to the GitHub. Currently making plans to meet and catch up on any shortcomings in terms of the project's code.
+
+
+Meeting 3 - 8:02 PM 2025-02-24
+Coding todo list:
+- Setup Map API/Basic UI (Leaflet)
+- Setup FireBase
+- Create and Connect Backend to Frontend
+- Add posts to test pins throughout the map
+- Add a separate Post feature
+- Add user profiles and authentication through AWS
+- Figma visuals for how we want the website to look like
+
+Action Items:
+- Create concepts of visuals on Figma
+- Get familiar with relevant tools that we will use (codepen.io)
