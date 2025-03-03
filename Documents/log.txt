@@ -30,3 +30,22 @@ Coding todo list:
 Action Items:
 - Create concepts of visuals on Figma
 - Get familiar with relevant tools that we will use (codepen.io)
+
+
+Meeting 4 - 9:45 AM 2025-03-03
+Notes about UI elements:
+- Map
+	- Shows posts as map pins (group multiple nearby posts together?)
+- Lefthand side-menu
+	- Add post button
+	- View post (happens when you click a map pin/post)
+	- View feed button
+	- Can be minimized to a search bar (like Google Maps)
+	- Stays static 
+- User profiles
+	- Display a scrolling feed of their posts
+	- Lefthand menu shows user information (name, camera specs, etc)
+- Darkroom Gallery (Social media feed)
+	- Similar to Instagram explore page
+	- Displays nearby photos
+	- Clicking a photo expands it and shows its information (location, photographer, etc)
