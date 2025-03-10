@@ -1,7 +1,74 @@
 .map-container {
+  top: -10px;
   margin-top: 65px;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
+}
+
+.main-container {
+  position: absolute;
+  height: 525px;
+  width: 450px;
+  top: 100px;
+  left: 25px;
+  background: rgb(27, 27, 27);
+  z-index: 1000;
+  box-shadow: 0px 0px 20px 1px black;
+  border-radius: 10px;
+}
+
+#sub-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: auto;
+  margin: auto;
+  max-width: 450px;
+  max-height: 525px;
+  gap: 20px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.foto-container {
+  border-radius: 10px;
+  height: 200px;
+  background: rgb(25, 25, 25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  scroll-snap-align: start;
+  box-shadow: 0px 0px 14px 0 black;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(27, 27, 27);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #252525;
+  border-radius: 10px;
+  border: 3px solid #373737;
+}
+
+.submit-button {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background: red;
+  left: 100px;
+}
+
+.fotoimage {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 #map {
@@ -110,7 +177,7 @@
   
     .brand{
       float: left;
-      margin-left: 1em;
+      margin-left: -11em;
       padding: 1em;
     h1{
       margin: 0;
