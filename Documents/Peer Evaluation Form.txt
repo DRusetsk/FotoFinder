@@ -1,0 +1,7 @@
+Work credits so far:
+
+Alireza:
+- Planning Document PDF
+- Big user stories
+- First iteration of detailed user stories
+- Creation and updating of log.txt
