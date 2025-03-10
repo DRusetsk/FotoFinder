@@ -5,9 +5,9 @@ import {Icon} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 interface MainContainerProps {
-    photoCollection: {
+    photoCollection?: {
         imgURLs: {
-        [key: string]: string;
+            [key: string]: string;
         };
         lat: number;
         long: number;
@@ -22,7 +22,7 @@ const customIcon = new Icon({
     });
 
 
-const Map: React.FC<MainContainerProps> = ({ photoCollection }) => {
+const Map: React.FC<MainContainerProps> = ({ photoCollection = [] }) => {
     return (
         <div className = "map-container">
             <MapContainer  zoomControl = {false} id = "map" center={[43.765435, -79.467689]} zoom={13} scrollWheelZoom={false}>

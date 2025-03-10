@@ -13,9 +13,11 @@ interface MainContainerProps {
         photoDescription: string;
         photoID: string;
     }[];
+
+    setPhotoIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MainContainer: React.FC<MainContainerProps> = ({ photoCollection }) => {
+const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhotoIsClicked }) => {
     return (
         <div className = "main-container">
             <br></br>
@@ -27,7 +29,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection }) => {
                         const firstImageURL = photo.imgURLs && Object.keys(photo.imgURLs).length > 0 
                         ? photo.imgURLs['1']
                         : 'https://static.vecteezy.com/system/resources/thumbnails/014/628/086/small/download-icon-website-buffer-loader-a-spinning-circle-to-download-information-on-the-website-png.png';
-                        return (<FotoContainer key = {photo.photoID}>
+                        return (<FotoContainer key = {photo.photoID} setPhotoIsClicked = {setPhotoIsClicked}>
                             <img className = "fotoimage" src = {firstImageURL}/>
                             </FotoContainer>);
                     })

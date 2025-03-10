@@ -22,6 +22,7 @@ import { rtDB } from './firebaseconfig';
 
     const databaseRef = dbRef(rtDB, 'photos/');
     const [photoCollection, setPhotoCollection] = useState<Photo[]>([]);
+    const [photoIsClicked, setPhotoIsClicked] = useState<boolean>(false);
 
     useEffect(() => {
         onValue(databaseRef, (snapshot) => {
@@ -38,7 +39,14 @@ import { rtDB } from './firebaseconfig';
     return (
       <div>
         <NavBar/>
-        <MainContainer photoCollection={photoCollection}/>
+        <MainContainer photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked}/>
+        {photoIsClicked ? (
+            <div className = "photo-info-container">
+              <img src = {photoCollection[0].imgURLs[1]} style = {{borderRadius: "10px", height: "70%", width: "100%", display: "flex", alignItems: "center", justifyContent: "center",   scrollSnapAlign: "start", paddingBottom: "10px"}}></img>
+            </div>
+        ) : (
+          <></>
+        )}
         <Map photoCollection={photoCollection}/>
       </div>
     );

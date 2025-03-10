@@ -42,6 +42,16 @@
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
+.photo-info-container {
+  border-radius: 10px;
+  position: absolute;
+  top: 100px;
+  height: 525px;
+  width: 500px;
+  left: 500px;
+  background: rgb(27, 27, 27);
+  z-index: 10001;
+}
 *::-webkit-scrollbar {
   width: 16px;
 }
