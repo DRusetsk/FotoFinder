@@ -1,7 +1,3 @@
-Work credits so far:
+Peer Evaluation Form
 
-Alireza:
-- Planning Document PDF
-- Big user stories
-- First iteration of detailed user stories
-- Creation and updating of log.txt
+This form is to acknowledge that all group memmbers contributed. Our demom presentation outlines specifically what each member has contributed so far.
