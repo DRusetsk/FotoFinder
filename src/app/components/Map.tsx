@@ -45,26 +45,26 @@ const Map: React.FC<MainContainerProps> = ({ photoCollection = [], handleMarkerC
     return (
         <div className = "map-container">
             <MapContainer  zoomControl = {false} id = "map" center={[43.765435, -79.467689]} zoom={13} scrollWheelZoom={false}>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                    url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                />
-                <ZoomControl position = 'topright'></ZoomControl>
-                {photoCollection.length > 0 ? (
-                    photoCollection.map((photo, index) => {
-                        return (
-                            <Marker key = {index} icon = {customIcon} position={[photo.lat, photo.lng]} 
-                                eventHandlers={{
-                                click: (e) => {
-                                  handleMarkerClick(index);
-                                }
-                              }}/>
-                        )
-                    })
-                ) : (
-                    <></>
-                )}
-            </MapContainer>
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            />
+            <ZoomControl position = 'topright'></ZoomControl>
+            {photoCollection.length > 0 ? (
+                photoCollection.map((photo, index) => {
+                    return (
+                        <Marker key = {index} icon = {customIcon} position={[photo.lat, photo.lng]} 
+                            eventHandlers={{
+                            click: (e) => {
+                                handleMarkerClick(index);
+                            }
+                            }}/>
+                    )
+                })
+            ) : (
+                <></>
+            )}
+        </MapContainer>
         </div>
         
     );

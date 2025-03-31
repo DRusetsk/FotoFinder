@@ -8,7 +8,6 @@ import MainContainer from './components/MainContainer';
 import { ref as dbRef, onValue } from 'firebase/database';
 import { rtDB } from './firebaseconfig';
 import {Button} from "@/components/ui/button";
-
 import Carousel from './components/Carousel';
 import { Container } from 'lucide-react';
 
@@ -74,7 +73,7 @@ import { Container } from 'lucide-react';
     return (
       <div>
         <NavBar/>
-        <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked}/>
+        <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked} setPhotoCollection={setPhotoCollection}/>
         {photoIsClicked ? (
             <div className = "photo-info-container">
               <Carousel locationID = {locationID} photoCollection = {photoCollection} setCarouselIndex = {setCarouselIndex}/>
