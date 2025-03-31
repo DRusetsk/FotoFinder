@@ -47,6 +47,7 @@ import { Container } from 'lucide-react';
     const [photoCollection, setPhotoCollection] = useState<Photo[]>([]);
     const [photoIsClicked, setPhotoIsClicked] = useState<boolean>(false);
     const [locationID, setLocationID] = useState<number>(0);
+    const [carouselIndex, setCarouselIndex] = useState<number>(0);
 
     useEffect(() => {
         onValue(databaseRef, (snapshot) => {
@@ -75,7 +76,7 @@ import { Container } from 'lucide-react';
         <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked}/>
         {photoIsClicked ? (
             <div className = "photo-info-container">
-              <Carousel locationID = {locationID} photoCollection = {photoCollection} />
+              <Carousel locationID = {locationID} photoCollection = {photoCollection} setCarouselIndex = {setCarouselIndex}/>
               <div className='pl-5 pr-5 pt-1 pb-3'>
               <h1 id='photo-title' className='text-white text-2xl font-medium'>Location Name: {photoCollection[locationID].locationName}</h1>
               <h2 id='photo-desc' className='text-white text-lg'>Description: {photoCollection[locationID].locationDescription}</h2>

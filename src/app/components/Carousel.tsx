@@ -16,23 +16,23 @@ interface CarouselProps {
   photoCollection: {
     imgURLs: {
       [key: string]: {url: string, metadata: {
-          aperture: {
-            denominator: number;
-            numerator: number;
-          }
-          exposureTime: {
-            denominator: number;
-            numerator: number;
-          }
-          focalLength: {
-            denominator: number;
-            numerator: number;
-          }
-          iso: number;
-          lensModel: string;
-          model: string;
-          timestamp: string;
-        }}
+        aperture: {
+          denominator: number;
+          numerator: number;
+        }
+        exposureTime: {
+          denominator: number;
+          numerator: number;
+        }
+        focalLength: {
+          denominator: number;
+          numerator: number;
+        }
+        iso: number;
+        lensModel: string;
+        model: string;
+        timestamp: string;
+      }}
     };
     lat: number;
     lng: number;
@@ -41,27 +41,31 @@ interface CarouselProps {
   }[];
 
   locationID: number;
+  setCarouselIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ photoCollection, locationID }) => {
+const Carousel: React.FC<CarouselProps> = ({ photoCollection, locationID, setCarouselIndex }) => {
   return (
-      <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
-          loop
-      >
-        {Object.entries(photoCollection[locationID].imgURLs).map(([key, value]) => (
-            <SwiperSlide key={key}>
-              <div className="flex justify-center">
-                <Image src={value.url} alt={value.url} width={800} height={500} className="rounded-lg" />
-              </div>
-            </SwiperSlide>
-        ))}
-      </Swiper>
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={20}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 3000 }}
+      loop
+      onSlideChange={(swiper:any) => {
+        setCarouselIndex(swiper.realIndex);
+      }}
+    >
+      {Object.entries(photoCollection[locationID].imgURLs).map(([key, value]) => (
+        <SwiperSlide key={key}>
+          <div className="flex justify-center">
+            <Image src={value.url} alt={value.url} width={800} height={500} className="rounded-lg" />
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
