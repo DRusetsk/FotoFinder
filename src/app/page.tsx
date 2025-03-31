@@ -69,9 +69,9 @@ import { Container } from 'lucide-react';
       setPhotoIsClicked(false);
       setCarouselIndex(0);
     }
-    <button  className="mt-5 text-white"onClick={closeWindow}>Close</button>
+    
     return (
-      <div>
+      <div className='bg-black'>
         <NavBar/>
         <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked} setPhotoCollection={setPhotoCollection}/>
         {photoIsClicked ? (
