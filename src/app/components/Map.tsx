@@ -14,6 +14,8 @@ interface MainContainerProps {
         photoDescription: string;
         photoID: string;
     }[];
+
+    handleMarkerClick: (lID: number) => void;
 }
 
 const customIcon = new Icon({
@@ -22,7 +24,7 @@ const customIcon = new Icon({
     });
 
 
-const Map: React.FC<MainContainerProps> = ({ photoCollection = [] }) => {
+const Map: React.FC<MainContainerProps> = ({ photoCollection = [], handleMarkerClick }) => {
     return (
         <div className = "map-container">
             <MapContainer  zoomControl = {false} id = "map" center={[43.765435, -79.467689]} zoom={13} scrollWheelZoom={false}>
@@ -32,9 +34,14 @@ const Map: React.FC<MainContainerProps> = ({ photoCollection = [] }) => {
                 />
                 <ZoomControl position = 'topright'></ZoomControl>
                 {photoCollection.length > 0 ? (
-                    photoCollection.map((photo) => {
+                    photoCollection.map((photo, index) => {
                         return (
-                            <Marker icon = {customIcon} position={[photo.lat, photo.long]}/>
+                            <Marker key = {index} icon = {customIcon} position={[photo.lat, photo.long]} 
+                                eventHandlers={{
+                                click: (e) => {
+                                  handleMarkerClick(index);
+                                }
+                              }}/>
                         )
                     })
                 ) : (

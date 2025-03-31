@@ -20,11 +20,13 @@ import Carousel from './components/Carousel';
       long: number;
       photoDescription: string;
       photoID: string;
-    }
+    };
+    
 
     const databaseRef = dbRef(rtDB, 'photos/');
     const [photoCollection, setPhotoCollection] = useState<Photo[]>([]);
     const [photoIsClicked, setPhotoIsClicked] = useState<boolean>(false);
+    const [locationID, setLocationID] = useState<number>(0);
 
     useEffect(() => {
         onValue(databaseRef, (snapshot) => {
@@ -36,6 +38,11 @@ import Carousel from './components/Carousel';
         setPhotoCollection(newData);
     })
     }, []);
+
+    const handleMarkerClick = (lID: number) => {
+      setLocationID(lID);
+      console.log(lID);
+    }
 
 
     return (
@@ -53,7 +60,7 @@ import Carousel from './components/Carousel';
         ) : (
           <></>
         )}
-        <Map photoCollection={photoCollection}/>
+        <Map photoCollection={photoCollection} handleMarkerClick={handleMarkerClick}/>
       </div>
     );
   }

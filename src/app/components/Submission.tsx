@@ -11,6 +11,7 @@ import {getDownloadURL, ref, uploadBytes} from 'firebase/storage'
 import {set, ref as dbRef, update} from 'firebase/database';
 import { v4 } from 'uuid';
 import { useRouter } from 'next/navigation';
+import EXIF from 'exif-js';
 
 interface Coordinates {
     lat: number;

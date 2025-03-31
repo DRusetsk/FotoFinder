@@ -25,7 +25,6 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
             <div id = "sub-container">
                 {photoCollection.length > 0 ? (
                     photoCollection.map((photo) => {
-                        console.log(photoCollection);
                         const firstImageURL = photo.imgURLs && Object.keys(photo.imgURLs).length > 0 
                         ? photo.imgURLs['1']
                         : 'https://static.vecteezy.com/system/resources/thumbnails/014/628/086/small/download-icon-website-buffer-loader-a-spinning-circle-to-download-information-on-the-website-png.png';
