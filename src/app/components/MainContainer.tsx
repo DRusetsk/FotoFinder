@@ -2,6 +2,7 @@ import FotoContainer from "./FotoContainer";
 import { useState, useEffect} from 'react';
 import { ref as dbRef, onValue} from 'firebase/database';
 import { rtDB } from '../firebaseconfig';
+import FilterDropdown from "@/app/components/Filter";
 
 interface MainContainerProps {
     photoCollection: {
@@ -37,9 +38,12 @@ interface MainContainerProps {
 
 const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhotoIsClicked, setLocationID }) => {
     return (
-        <div className = "main-container text-lg absolute h-525px w-450px mt-2 ml-2 bg-[rgb(27,27,27)] rounded-2xl z-1000 shadow-2xl">
-            <br></br>
-            <b className="p-4 text-white font-medium">Everyone's photos</b>
+        <div className = "main-container text-lg absolute h-auto w-450px mt-1 ml-2 bg-[rgb(27,27,27)] rounded-2xl z-1000 shadow-2xl">
+            <div className="pl-3 pr-2 pt-5 flex justify-between">
+                <b className=" text-white font-medium">Everyone's photos</b>
+                <FilterDropdown />
+            </div>
+
             <div id = "sub-container">
                 {photoCollection.length > 0 ? (
                     photoCollection.map((photo, index) => {
