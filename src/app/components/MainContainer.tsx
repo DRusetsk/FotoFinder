@@ -83,6 +83,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
                 })
             
                 setPhotoCollection(newData);
+                setLocationID(0);
             });
         } else {
             get(locationQuery).then((snapshot) => {
