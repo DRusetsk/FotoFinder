@@ -84,10 +84,10 @@
     }
   }
 
-  
+ /* 
   a.menu-link {
           float: right;
-          display: block;
+          display: flex;
           padding: 1em;
       }
       nav[role=navigation] {
@@ -118,19 +118,24 @@
         font-size: 0.9em;
       }
   
-  
+  /*
   .menu-link {
+    
     height: 30px;
     width: 33px;
+    
     cursor: pointer;
   }
   
   .bar1, .bar2, .bar3 {
     margin-top: 3px;
     background: gray;
+    
     width: 33px;
     height: 4px;
+    
     position: absolute;
+    
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
     -moz-transform: rotate(-180deg);
@@ -147,7 +152,7 @@
   transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
-  }
+  }*/
   
     .brand{
       float: left;

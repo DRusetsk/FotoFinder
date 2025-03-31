@@ -36,11 +36,12 @@ export default function NavBar() {
     return (
         <div>
             <div id="header-nav" className="fixed top-0 bg-black z-10000 block w-full h-16.5">
-                <div className="container">
+                <div className="container justify-between items-center">
                     <div className="brand flex items-center gap-4 ml-4">
                         <img src="/logo.png" alt="FotoFinder Logo" className="h-10" />
                         <a href="/" className="text-3xl text-white font-bold">FotoFinder</a>
                     </div>
+                    
                     <a href="#menu" className="menu-link">
                         <span className="bar1"></span>
                         <span className="bar2"></span>
