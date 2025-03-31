@@ -60,11 +60,14 @@ const Submission: React.FC = () => {
           // Read EXIF data
           const exifData = EXIF.readFromBinaryFile(event.target.result as ArrayBuffer);
           const metadata = {
-              make: exifData.Make || "Unknown",
               model: exifData.Model || "Unknown",
-              lat: exifData.GPSLatitude ? exifData.GPSLatitude[0] + (exifData.GPSLatitude[1] / 60) + (exifData.GPSLatitude[2] / 3600) : null,
-              lng: exifData.GPSLongitude ? exifData.GPSLongitude[0] + (exifData.GPSLongitude[1] / 60) + (exifData.GPSLongitude[2] / 3600) : null,
               timestamp: exifData.DateTimeOriginal || "Unknown",
+              lensModel: exifData.LensModel || "Unknown",
+              shutterSpeed: exifData.ShutterSpeed || "Unknown",
+              exposureTime: exifData.ExposureTime || "Unknown",
+              aperture: exifData.FNumber || "Unknown",
+              focalLength: exifData.FocalLength || "Unknown",
+              iso: exifData.ISOSpeedRatings || "Unknown"
           };
 
           const uploadPromise = uploadBytes(imageRef, file)
