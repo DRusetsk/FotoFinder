@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
+interface submissionProps {
+    selectedFilter: Filter;
+    setSelectedFilter: React.Dispatch<React.SetStateAction<Filter>>;
+
+    filterCallback: (filter: Filter) => void;
+}
+
 type Filter = 'All' | 'Urban' | 'Wildlife' | 'Sports' | 'Nature';
 
-const FilterDropdown: React.FC = () => {
-    // State to manage selected filter
-    const [selectedFilter, setSelectedFilter] = useState<Filter>('All');
-
+const FilterDropdown: React.FC<submissionProps> = ({ selectedFilter, setSelectedFilter, filterCallback }) => {
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedFilter(event.target.value as Filter);
+        filterCallback(event.target.value as Filter);
     };
 
     return (

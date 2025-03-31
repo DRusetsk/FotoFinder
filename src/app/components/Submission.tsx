@@ -19,10 +19,13 @@ interface Coordinates {
     lng: number;
 }
 
+type Filter = 'All' | 'Urban' | 'Wildlife' | 'Sports' | 'Nature';
+
 const Submission: React.FC = () => {
   const [locationName, setLocationName] = useState("");
   const [description, setDescription] = useState("");
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
+  const [selectedFilter, setSelectedFilter] = useState<Filter>('All');
   const [files, setFiles] = useState<File[]>([]);
   const [clicked, setClicked] = useState(false);
   const [address, setAddress] = useState<string>("");
@@ -49,6 +52,7 @@ const Submission: React.FC = () => {
         lat: coordinates?.lat,
         lng: coordinates?.lng,
         locationAddress: address,
+        tag: selectedFilter
     })
 
 
@@ -98,6 +102,11 @@ const Submission: React.FC = () => {
     console.log(address);
   };
 
+  const filterCallback = () => {
+    //   const databaseRef = dbRef(rtDB, 'locations/');  
+        console.log(selectedFilter);
+  };
+
   return (
     <div>
         <div className="max-w-lg mx-auto p-6">
@@ -119,7 +128,7 @@ const Submission: React.FC = () => {
                 required
                 />
                 <div className="flex justify-center p-2">
-                    <FilterDropdown/>
+                    <FilterDropdown selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} filterCallback={filterCallback}/>
                 </div>
 
 
