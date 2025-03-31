@@ -63,12 +63,13 @@ interface MainContainerProps {
     setLocationID: React.Dispatch<React.SetStateAction<number>>;
     setPhotoIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
     setPhotoCollection: React.Dispatch<React.SetStateAction<Photo[]>>;
+    setCarouselIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
 type Filter = 'All' | 'Urban' | 'Wildlife' | 'Sports' | 'Nature';
 
 
-const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhotoCollection, setPhotoIsClicked, setLocationID }) => {
+const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhotoCollection, setPhotoIsClicked, setLocationID, setCarouselIndex }) => {
     const [selectedFilter, setSelectedFilter] = useState<Filter>('All');
     const rtDB = getDatabase();
     const filterCallback = (filter: Filter) => {
@@ -113,7 +114,7 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
                         const firstImageURL = photo.imgURLs && Object.keys(photo.imgURLs).length > 0 
                         ? photo.imgURLs['0'].url
                         : 'https://static.vecteezy.com/system/resources/thumbnails/014/628/086/small/download-icon-website-buffer-loader-a-spinning-circle-to-download-information-on-the-website-png.png';
-                        return (<FotoContainer key = {index} setPhotoIsClicked = {setPhotoIsClicked} locationID = {index} setLocationID = {setLocationID}>
+                        return (<FotoContainer key = {index} setPhotoIsClicked = {setPhotoIsClicked} locationID = {index} setLocationID = {setLocationID} setCarouselIndex = {setCarouselIndex}>
                             <img className = "fotoimage" src = {firstImageURL}/>
                             </FotoContainer>);
                     })

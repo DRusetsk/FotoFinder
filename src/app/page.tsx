@@ -73,7 +73,7 @@ import { Container } from 'lucide-react';
     return (
       <div className='bg-black'>
         <NavBar/>
-        <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked} setPhotoCollection={setPhotoCollection}/>
+        <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked} setPhotoCollection={setPhotoCollection} setCarouselIndex={setCarouselIndex}/>
         {photoIsClicked ? (
             <div className = "photo-info-container">
               <Carousel locationID = {locationID} photoCollection = {photoCollection} setCarouselIndex = {setCarouselIndex}/>
