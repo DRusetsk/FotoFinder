@@ -34,8 +34,9 @@
 .photo-info-container {
   border-radius: 10px;
   position: absolute;
-  top: 100px;
-  height: auto;
+  top: 70px;
+  height: 575px;
+  overflow-y: auto;
   width: 500px;
   left: 500px;
   background: rgb(27, 27, 27);
