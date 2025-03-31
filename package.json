@@ -12,6 +12,8 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@shadcn/ui": "^0.0.4",
     "@types/geojson": "^7946.0.16",
+    "class-variance-authority": "^0.7.1",
+    "exif-js": "^2.3.0",
     "firebase": "^11.4.0",
     "leaflet": "^1.9.4",
     "leaflet-geosearch": "^4.2.0",
