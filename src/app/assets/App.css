@@ -93,7 +93,7 @@
       color: white;
     }
   }
-  
+/*
   #header-nav{
     position: fixed;
     top: 0;
@@ -112,14 +112,13 @@
      -webkit-transform: translate3d(0px, 0px, 0px);
   
   }
-  
   #header-nav.hide-nav-bar{
      -webkit-transform: translate(0, -100%);
      -moz-transform: translate(0, -100%);
      -ms-transform: translate(0, -100%);
      transform: translate(0, -100%);
      -webkit-backface-visibility: hidden;
-  }
+  }*/
   
   a.menu-link {
           float: right;

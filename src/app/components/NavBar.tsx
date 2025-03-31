@@ -2,8 +2,16 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { auth } from '../firebaseconfig';
+import {Button} from "@/components/ui/button";
+import {useRouter} from "next/navigation";
+
+
 
 export default function NavBar() {
+    const router = useRouter();
+    const handleSignup = () => {
+        router.push("/Signup");
+    };
     const [authorized, setAuthorized] = useState<User>();
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
@@ -27,10 +35,10 @@ export default function NavBar() {
 
     return (
         <div>
-            <div id="header-nav">
+            <div id="header-nav" className="fixed top-0 bg-black z-100 block w-full pb-2.5">
                 <div className="container">
-                    <div className="brand">
-                        <a href="/"><h1>FotoFinder</h1></a>
+                    <div className="brand flex justify-between items-center">
+                        <a href="/" className="text-3xl pb-10">FotoFinder</a>
                     </div>
                     <a href="#menu" className="menu-link">
                         <span className="bar1"></span>
@@ -39,9 +47,9 @@ export default function NavBar() {
                     </a>
 
                     {authorized === undefined ? (
-                        <nav id="menu" role="navigation">
+                        <nav id="menu" role="navigation" className="font-medium">
                             <ul>
-                                <li><a href="/Signup">Signup</a></li>
+                                <li><Button variant="secondary" onClick={handleSignup}>Sign Up</Button></li>
                                 <li><a></a></li>
                                 <li><a href="/Login">Login</a></li>
                             </ul>
