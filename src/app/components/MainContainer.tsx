@@ -102,8 +102,8 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
     };
 
     return (
-        <div className = "main-container text-lg absolute h-auto w-450px mt-1 ml-2 bg-[rgb(27,27,27)] rounded-2xl z-1000 shadow-2xl">
-            <div className="pl-3 pr-2 pt-5 flex justify-between">
+        <div className = "main-container text-lg absolute h-auto w-500px mt-1 ml-2 bg-[rgb(27,27,27)] rounded-2xl z-1000 shadow-2xl">
+            <div className="pl-3 pr-2 pt-5 flex justify-between mb-2">
                 <b className=" text-white font-medium">Everyone's photos</b>
                 <FilterDropdown selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} filterCallback={filterCallback}/>
             </div>

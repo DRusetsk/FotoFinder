@@ -38,7 +38,7 @@ export default function NavBar() {
             <div id="header-nav" className="fixed top-0 bg-black z-100 block w-full pb-2.5 ">
                 <div className="container">
                     <div className="brand flex justify-between items-center">
-                        <a href="/" className="fixed text-3xl ml-44 mt-5">FotoFinder</a>
+                        <a href="/" className="fixed text-3xl ml-4 mt-5">FotoFinder</a>
                     </div>
                     <a href="#menu" className="menu-link">
                         <span className="bar1"></span>
