@@ -7,8 +7,10 @@ import 'leaflet/dist/leaflet.css';
 import MainContainer from './components/MainContainer';
 import { ref as dbRef, onValue } from 'firebase/database';
 import { rtDB } from './firebaseconfig';
+import {Button} from "@/components/ui/button";
 
 import Carousel from './components/Carousel';
+import { Container } from 'lucide-react';
 
 
   export default function Home() {
@@ -74,15 +76,16 @@ import Carousel from './components/Carousel';
         {photoIsClicked ? (
             <div className = "photo-info-container">
               <Carousel locationID = {locationID} photoCollection = {photoCollection} />
+              <div className='pl-5 pr-5 pt-1 pb-3'>
               <h1 id='photo-title' className='text-white text-2xl font-medium'>Location Name: {photoCollection[locationID].locationName}</h1>
               <h2 id='photo-desc' className='text-white text-lg'>Description: {photoCollection[locationID].locationDescription}</h2>
               <h2 id='photo-desc' className='text-white text-m'>Location: {photoCollection[locationID].locationAddress}</h2>
 
-              <b></b>
               <h3 id='phot-exif' className='text-white font-light mt-2'>Camera: {photoCollection[locationID].imgURLs[0].metadata.model} Focal Length: {photoCollection[locationID].imgURLs[0].metadata.focalLength.numerator}mm</h3>
               <h3 id='phot-exif' className='text-white font-light'>Aperture: f{photoCollection[locationID].imgURLs[0].metadata.aperture.numerator / photoCollection[locationID].imgURLs[0].metadata.aperture.denominator} Shutter Speed: {photoCollection[locationID].imgURLs[0].metadata.exposureTime.numerator}/{photoCollection[locationID].imgURLs[0].metadata.exposureTime.denominator} ISO:{photoCollection[locationID].imgURLs[0].metadata.iso}</h3>      
               <h3 id='phot-exif' className='text-white font-light'>Timestamp: {photoCollection[locationID].imgURLs[0].metadata.timestamp}</h3>
-              <button variant="secondary" className="mt-5 text-white" onClick={closeWindow}>Close</button>
+              <div className='flex justify-center content-center'><Button variant="secondary" className="mt-5" onClick={closeWindow}>Close</Button></div>
+              </div>
             </div>
         ) : (
           <></>

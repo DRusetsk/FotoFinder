@@ -51,7 +51,6 @@
   left: 500px;
   background: rgb(27, 27, 27);
   z-index: 10001;
-  padding: 1rem;
 }
 *::-webkit-scrollbar {
   width: 16px;
