@@ -7,12 +7,29 @@ import 'leaflet/dist/leaflet.css';
 interface MainContainerProps {
     photoCollection?: {
         imgURLs: {
-            [key: string]: string;
+            [key: string]: {url: string, metadata: {
+              aperture: {
+                denominator: number;
+                numerator: number;
+              }
+              exposureTime: {
+                denominator: number;
+                numerator: number;
+              }
+              focalLength: {
+                denominator: number;
+                numerator: number;
+              }
+              iso: number;
+              lensModel: string;
+              model: string;
+              timestamp: string;
+            }}
         };
         lat: number;
-        long: number;
-        photoDescription: string;
-        photoID: string;
+        lng: number;
+        locationDescription: string;
+        locationName: string;
     }[];
 
     handleMarkerClick: (lID: number) => void;
@@ -36,7 +53,7 @@ const Map: React.FC<MainContainerProps> = ({ photoCollection = [], handleMarkerC
                 {photoCollection.length > 0 ? (
                     photoCollection.map((photo, index) => {
                         return (
-                            <Marker key = {index} icon = {customIcon} position={[photo.lat, photo.long]} 
+                            <Marker key = {index} icon = {customIcon} position={[photo.lat, photo.lng]} 
                                 eventHandlers={{
                                 click: (e) => {
                                   handleMarkerClick(index);
