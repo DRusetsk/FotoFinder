@@ -120,3 +120,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+#__next-build-watcher, #__next-build-error-overlay {
+  display: none !important;
+}
+
+.nextjs-toast {
+  display: none !important;
+}
+
+nextjs-portal {
+  display: none;
+}
