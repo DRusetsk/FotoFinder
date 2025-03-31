@@ -45,6 +45,7 @@ import Carousel from './components/Carousel';
     const [photoCollection, setPhotoCollection] = useState<Photo[]>([]);
     const [photoIsClicked, setPhotoIsClicked] = useState<boolean>(false);
     const [locationID, setLocationID] = useState<number>(0);
+    const [carouselIndex, setCarouselIndex] = useState<number>(0);
 
     useEffect(() => {
         onValue(databaseRef, (snapshot) => {
@@ -70,15 +71,15 @@ import Carousel from './components/Carousel';
         <MainContainer setLocationID = {setLocationID} photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked}/>
         {photoIsClicked ? (
             <div className = "photo-info-container">
-              <Carousel locationID = {locationID} photoCollection = {photoCollection} />
+              <Carousel locationID = {locationID} photoCollection = {photoCollection} setCarouselIndex = {setCarouselIndex} />
               <h1 id='photo-title' className='text-white text-2xl font-medium'>Location Name: {photoCollection[locationID].locationName}</h1>
               <h2 id='photo-desc' className='text-white text-lg'>Description: {photoCollection[locationID].locationDescription}</h2>
               <h2 id='photo-desc' className='text-white text-m'>Address: {photoCollection[locationID].locationAddress}</h2>
 
               <b></b>
-              <h3 id='phot-exif' className='text-white font-light mt-2'>Camera: {photoCollection[locationID].imgURLs[0].metadata.model} Focal Length: {photoCollection[locationID].imgURLs[0].metadata.focalLength.numerator}mm</h3>
-              <h3 id='phot-exif' className='text-white font-light mt-2'>Aperture: f{photoCollection[locationID].imgURLs[0].metadata.aperture.numerator / photoCollection[locationID].imgURLs[0].metadata.aperture.denominator} Shutter Speed: {photoCollection[locationID].imgURLs[0].metadata.exposureTime.numerator}/{photoCollection[locationID].imgURLs[0].metadata.exposureTime.denominator} ISO:{photoCollection[locationID].imgURLs[0].metadata.iso}</h3>      
-              <h3 id='phot-exif' className='text-white font-light mt-2'>Timestamp: {photoCollection[locationID].imgURLs[0].metadata.timestamp}</h3>
+              <h3 id='phot-exif' className='text-white font-light mt-2'>Camera: {photoCollection[locationID].imgURLs[carouselIndex].metadata.model} Focal Length: {photoCollection[locationID].imgURLs[carouselIndex].metadata.focalLength.numerator}mm</h3>
+              <h3 id='phot-exif' className='text-white font-light mt-2'>Aperture: f{photoCollection[locationID].imgURLs[carouselIndex].metadata.aperture.numerator / photoCollection[locationID].imgURLs[carouselIndex].metadata.aperture.denominator} Shutter Speed: {photoCollection[locationID].imgURLs[carouselIndex].metadata.exposureTime.numerator}/{photoCollection[locationID].imgURLs[carouselIndex].metadata.exposureTime.denominator} ISO:{photoCollection[locationID].imgURLs[carouselIndex].metadata.iso}</h3>      
+              <h3 id='phot-exif' className='text-white font-light mt-2'>Timestamp: {photoCollection[locationID].imgURLs[carouselIndex].metadata.timestamp}</h3>
 
             </div>
         ) : (

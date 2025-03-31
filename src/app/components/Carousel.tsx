@@ -12,19 +12,39 @@ type ImageData = {
   alt: string;
 };
 
-const Carousel = () => {
-  const [images, setImages] = useState<ImageData[]>([]);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      const res = await fetch("/images.json");
-      const data: ImageData[] = await res.json();
-      setImages(data);
+interface CarouselProps {
+  photoCollection: {
+    imgURLs: {
+      [key: string]: {url: string, metadata: {
+        aperture: {
+          denominator: number;
+          numerator: number;
+        }
+        exposureTime: {
+          denominator: number;
+          numerator: number;
+        }
+        focalLength: {
+          denominator: number;
+          numerator: number;
+        }
+        iso: number;
+        lensModel: string;
+        model: string;
+        timestamp: string;
+      }}
     };
+    lat: number;
+    lng: number;
+    locationDescription: string;
+    locationName: string;
+  }[];
 
-    fetchImages();
-  }, []);
+  locationID: number;
+  setCarouselIndex: React.Dispatch<React.SetStateAction<number>>;
+}
 
+const Carousel: React.FC<CarouselProps> = ({ photoCollection, locationID, setCarouselIndex }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -34,11 +54,14 @@ const Carousel = () => {
       pagination={{ clickable: true }}
       autoplay={{ delay: 3000 }}
       loop
+      onSlideChange={(swiper:any) => {
+        setCarouselIndex(swiper.realIndex);
+      }}
     >
-      {images.map((image) => (
-        <SwiperSlide key={image.id}>
+      {Object.entries(photoCollection[locationID].imgURLs).map(([key, value]) => (
+        <SwiperSlide key={key}>
           <div className="flex justify-center">
-            <Image src={image.url} alt={image.alt} width={800} height={500} className="rounded-lg" />
+            <Image src={value.url} alt={value.url} width={800} height={500} className="rounded-lg" />
           </div>
         </SwiperSlide>
       ))}
