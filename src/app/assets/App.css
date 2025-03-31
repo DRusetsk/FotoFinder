@@ -4,18 +4,7 @@
   height: 90vh;
   width: 100vw;
 }
-/*
-.main-container {
-  position: absolute;
-  height: 525px;
-  width: 450px;
-  top: 100px;
-  left: 25px;
-  background: rgb(27, 27, 27);
-  z-index: 1000;
-  box-shadow: 0px 0px 20px 1px black;
-  border-radius: 10px;
-}*/
+
 
 #sub-container {
   display: grid;
@@ -93,32 +82,7 @@
       color: white;
     }
   }
-/*
-  #header-nav{
-    position: fixed;
-    top: 0;
-    display: block;
-    width: 100%;
-    background: black;
-    background-color: rgba(0, 0, 0, 1);
-    z-index: 100;
-    -webkit-transition:-webkit-transform 0.7s .3s ease;
-        -moz-transition:   -moz-transform 0.7s .3s ease;
-        -ms-transition:    -ms-transform 0.7s .3s ease;
-            transition:        transform 0.7s .3s ease;
-    
-    
-    -webkit-backface-visibility: hidden;
-     -webkit-transform: translate3d(0px, 0px, 0px);
-  
-  }
-  #header-nav.hide-nav-bar{
-     -webkit-transform: translate(0, -100%);
-     -moz-transform: translate(0, -100%);
-     -ms-transform: translate(0, -100%);
-     transform: translate(0, -100%);
-     -webkit-backface-visibility: hidden;
-  }*/
+
   
   a.menu-link {
           float: right;
@@ -247,7 +211,7 @@
     position: fixed;
     margin-left: 130px;
     margin-top: 10px;
-    z-index: 0; /* Ensure the search bar is above other elements */
+    z-index: 100000; /* Ensure the search bar is above other elements */
 }
 
 .leaflet-geosearch-bar form{
