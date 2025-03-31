@@ -67,7 +67,8 @@ import { Container } from 'lucide-react';
     }
 
     const closeWindow = () =>{
-      setPhotoIsClicked(false)
+      setPhotoIsClicked(false);
+      setCarouselIndex(0);
     }
     <button  className="mt-5 text-white"onClick={closeWindow}>Close</button>
     return (
@@ -82,9 +83,9 @@ import { Container } from 'lucide-react';
               <h2 id='photo-desc' className='text-white text-lg'>Description: {photoCollection[locationID].locationDescription}</h2>
               <h2 id='photo-desc' className='text-white text-m'>Location: {photoCollection[locationID].locationAddress}</h2>
 
-              <h3 id='phot-exif' className='text-white font-light mt-2'>Camera: {photoCollection[locationID].imgURLs[0].metadata.model} Focal Length: {photoCollection[locationID].imgURLs[0].metadata.focalLength.numerator}mm</h3>
-              <h3 id='phot-exif' className='text-white font-light'>Aperture: f{photoCollection[locationID].imgURLs[0].metadata.aperture.numerator / photoCollection[locationID].imgURLs[0].metadata.aperture.denominator} Shutter Speed: {photoCollection[locationID].imgURLs[0].metadata.exposureTime.numerator}/{photoCollection[locationID].imgURLs[0].metadata.exposureTime.denominator} ISO:{photoCollection[locationID].imgURLs[0].metadata.iso}</h3>      
-              <h3 id='phot-exif' className='text-white font-light'>Timestamp: {photoCollection[locationID].imgURLs[0].metadata.timestamp}</h3>
+              <h3 id='phot-exif' className='text-white font-light mt-2'>Camera: {photoCollection[locationID].imgURLs[carouselIndex].metadata.model} Focal Length: {photoCollection[locationID].imgURLs[carouselIndex].metadata.focalLength.numerator}mm</h3>
+              <h3 id='phot-exif' className='text-white font-light'>Aperture: f{photoCollection[locationID].imgURLs[carouselIndex].metadata.aperture.numerator / photoCollection[locationID].imgURLs[carouselIndex].metadata.aperture.denominator} Shutter Speed: {photoCollection[locationID].imgURLs[carouselIndex].metadata.exposureTime.numerator}/{photoCollection[locationID].imgURLs[carouselIndex].metadata.exposureTime.denominator} ISO:{photoCollection[locationID].imgURLs[carouselIndex].metadata.iso}</h3>      
+              <h3 id='phot-exif' className='text-white font-light'>Timestamp: {photoCollection[locationID].imgURLs[carouselIndex].metadata.timestamp}</h3>
               <div className='flex justify-center content-center'><Button variant="secondary" className="mt-5" onClick={closeWindow}>Close</Button></div>
               </div>
             </div>
