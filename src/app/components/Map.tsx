@@ -64,7 +64,13 @@ const Map: React.FC<MainContainerProps> = ({ photoCollection = [], handleMarkerC
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
             />
             <ZoomControl position = 'topright'></ZoomControl>
-            <MapUpdater photoIsClicked={photoIsClicked} photoCollection={photoCollection} locationID={locationID} handleMarkerClick={handleMarkerClick}></MapUpdater>
+            {photoCollection.length > 0 ? (
+                <MapUpdater photoIsClicked={photoIsClicked} photoCollection={photoCollection} locationID={locationID} handleMarkerClick={handleMarkerClick}></MapUpdater>
+            ) : (
+                <></>
+            )}
+            
+            
             {photoCollection.length > 0 ? (
                 photoCollection.map((photo, index) => {
                     return (

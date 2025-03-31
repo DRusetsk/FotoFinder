@@ -82,8 +82,9 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
                     newData.push(childSnapShot.val());
                 })
             
-                setPhotoCollection(newData);
                 setLocationID(0);
+                setCarouselIndex(0);
+                setPhotoCollection(newData);
             });
         } else {
             get(locationQuery).then((snapshot) => {
@@ -94,8 +95,11 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
                     });
                     
                     setLocationID(0);
+                    setCarouselIndex(0);
                     setPhotoCollection(newData);
                 } else {
+                    setLocationID(0);
+                    setCarouselIndex(0);
                     setPhotoCollection([]);
                 }
             });
