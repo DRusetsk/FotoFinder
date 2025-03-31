@@ -11,7 +11,7 @@ const FilterDropdown: React.FC = () => {
     };
 
     return (
-        <div className="text-white font-light">
+        <div className="text-white font-light bg-[rgb(27,27,27)] rounded-lg flex justify-center w-50">
             <label htmlFor="filter">Select Filter:</label>
             <select
                 id="filter"

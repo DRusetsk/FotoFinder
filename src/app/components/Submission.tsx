@@ -12,6 +12,7 @@ import {set, ref as dbRef, update} from 'firebase/database';
 import { v4 } from 'uuid';
 import { useRouter } from 'next/navigation';
 import EXIF from 'exif-js';
+import FilterDropdown from "@/app/components/Filter";
 
 interface Coordinates {
     lat: number;
@@ -117,6 +118,11 @@ const Submission: React.FC = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 required
                 />
+                <div className="flex justify-center p-2">
+                    <FilterDropdown/>
+                </div>
+
+
                 <h2 className = "text-m font-semibold mb-2">Pin a location on the map!</h2>
 
                 <SubmissionMap sendMessage = {handleAddress}></SubmissionMap>
