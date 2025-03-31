@@ -42,3 +42,5 @@ next-env.d.ts
 
 #firebase config
 src/app/firebaseconfig.js
+
+/.idea
