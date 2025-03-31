@@ -5,3 +5,6 @@ EECS 2311 Software Development Project
 To launch, ensure you run "npm i" to install dependencies, and "npm run dev" to launch the site.
 
 [Customer Meeting's Summary Video](https://photos.app.goo.gl/JxWqD6a2W5NHszvE9)
+
+[Customer Meeting's Summary Video 2](https://drive.google.com/file/d/1M7r5tFFYyIeI0ZAqAV82ll7f57s31u5J/view?usp=sharing)
+
