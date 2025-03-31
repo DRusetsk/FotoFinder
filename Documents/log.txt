@@ -49,3 +49,8 @@ Notes about UI elements:
 	- Similar to Instagram explore page
 	- Displays nearby photos
 	- Clicking a photo expands it and shows its information (location, photographer, etc)
+
+
+Meeting 5 - 10:04 AM 2025-03-24
+- We mainly did a progress check-in with each other to prepare for the presentation
+- We delegated the tasks to get ready for Delivery 2
