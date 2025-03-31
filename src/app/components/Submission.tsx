@@ -52,15 +52,33 @@ const Submission: React.FC = () => {
 
 
     files.map((file, index) => {
+        const reader = new FileReader();
         const imageRef = ref(imgDB, `images/${file.name + v4()}`);
-        const uploadPromise = uploadBytes(imageRef, file)
-        .then(snapshot => getDownloadURL(ref(imgDB, snapshot.metadata.fullPath)))
-        .then(url => {
-            console.log(url);
-            set(dbRef(rtDB, 'locations/' + locationName + `/imgURLs/${index}`), {
-                url: url 
-            })
-        });
+        reader.onload = (event) => {
+          if (!event.target?.result) return;
+          
+          // Read EXIF data
+          const exifData = EXIF.readFromBinaryFile(event.target.result as ArrayBuffer);
+          const metadata = {
+              make: exifData.Make || "Unknown",
+              model: exifData.Model || "Unknown",
+              lat: exifData.GPSLatitude ? exifData.GPSLatitude[0] + (exifData.GPSLatitude[1] / 60) + (exifData.GPSLatitude[2] / 3600) : null,
+              lng: exifData.GPSLongitude ? exifData.GPSLongitude[0] + (exifData.GPSLongitude[1] / 60) + (exifData.GPSLongitude[2] / 3600) : null,
+              timestamp: exifData.DateTimeOriginal || "Unknown",
+          };
+
+          const uploadPromise = uploadBytes(imageRef, file)
+          .then(snapshot => getDownloadURL(ref(imgDB, snapshot.metadata.fullPath)))
+          .then(url => {
+              console.log(url);
+              set(dbRef(rtDB, 'locations/' + locationName + `/imgURLs/${index}`), {
+                  url: url,
+                  metadata: metadata
+              })
+          });
+        };
+
+        reader.readAsArrayBuffer(file);
     });
 
     // Handle form submission (e.g., API request)
