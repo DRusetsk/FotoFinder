@@ -91,7 +91,7 @@ import { Container } from 'lucide-react';
         ) : (
           <></>
         )}
-        <Map photoCollection = {photoCollection} handleMarkerClick={handleMarkerClick}/>
+        <Map photoIsClicked = {photoIsClicked} photoCollection = {photoCollection} handleMarkerClick={handleMarkerClick} locationID={locationID}/>
       </div>
     );
   }
