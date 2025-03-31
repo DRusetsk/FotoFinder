@@ -8,6 +8,8 @@ import MainContainer from './components/MainContainer';
 import { ref as dbRef, onValue } from 'firebase/database';
 import { rtDB } from './firebaseconfig';
 
+import Carousel from './components/Carousel';
+
 
   export default function Home() {
     interface Photo {
@@ -42,12 +44,11 @@ import { rtDB } from './firebaseconfig';
         <MainContainer photoCollection={photoCollection} setPhotoIsClicked = {setPhotoIsClicked}/>
         {photoIsClicked ? (
             <div className = "photo-info-container">
-              <img src = {photoCollection[0].imgURLs[1]} style = {{borderRadius: "10px", height: "70%", width: "100%", display: "flex", alignItems: "center", justifyContent: "center",   scrollSnapAlign: "start", paddingBottom: "10px"}}></img>
+              <Carousel />
               <h1 id='photo-title' className='text-white text-2xl font-medium'>Lakeside</h1>
               <h2 id='photo-desc' className='text-white text-lg'>This is an example description of the lakeside photo</h2>
               <b></b>
               <h3 id='phot-exif' className='text-white font-light mt-2'>Lens: EF 50mm f1/8, iso:200, Shutter: 1/1000</h3>
-              
             </div>
         ) : (
           <></>
