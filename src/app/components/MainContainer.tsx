@@ -85,13 +85,16 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
             });
         } else {
             get(locationQuery).then((snapshot) => {
-                if (snapshot.exists()) {
+                if (snapshot.exists() && snapshot.hasChildren()) {
                     const newData: Photo[] = [];
                     snapshot.forEach(childSnapShot => {
                         newData.push(childSnapShot.val());
-                    })
-
+                    });
+                    
+                    setLocationID(0);
                     setPhotoCollection(newData);
+                } else {
+                    setPhotoCollection([]);
                 }
             });
         }
@@ -116,7 +119,9 @@ const MainContainer: React.FC<MainContainerProps> = ({ photoCollection, setPhoto
                     })
                     
                 ) : (
-                    <></>
+                    <>
+                        <b className = "text-white w-80">No results with specified filter!</b>
+                    </>
                 )}
             </div>
         </div>
